@@ -40,7 +40,6 @@ function Login() {
                         <Row justify='center' className='row-color box-row'>
                             <Col className='col-color' sm={{ span: 12 }} xs={{ span: 18 }} align='middle'>
                                 <Button className='login-button' type='default' href='api/authorize'>
-                                {/* <Button className='login-button' type='default' href='http://localhost:5000/api/authorize'> */}
                                     <FontAwesomeIcon className='login-button-icon' icon={faSpotify} size="2x" />
                                     <span>Log In With Spotify</span>
                                 </Button>

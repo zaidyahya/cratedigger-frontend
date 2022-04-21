@@ -19,7 +19,6 @@ function HomeDemo() {
     const [form] = Form.useForm();
 
     useEffect(() => {
-        console.log('Home - UseEffect');
         init();
     }, []);
 
@@ -30,7 +29,6 @@ function HomeDemo() {
 
     function fetchUserDetails() {
         getUserDetails().then(data => {
-            console.log(data)
             setUser(data['display_name'])
         })
         .catch((error) => {
@@ -46,13 +44,11 @@ function HomeDemo() {
 
     function disabledDate(current) {
         // Can not select days before today and today
-        // return current && current > moment().endOf('day');
         return current > moment().endOf('day');
     }
 
     function refreshToken() {
         return new Promise((resolve, reject) => {
-            // fetch('http://localhost:5000/api/refresh-token', {
             fetch('api/refresh-token', {
                 method: 'GET',
                 headers: {
@@ -68,7 +64,6 @@ function HomeDemo() {
 
     function getUserDetails() {
         return new Promise((resolve, reject) => {
-            // fetch('http://localhost:5000/api/user', {
             fetch('api/user', {
                 method: 'GET',
                 headers: {
@@ -76,10 +71,8 @@ function HomeDemo() {
                 }
             })
             .then((response) => {
-                console.log(`[getUserDetails] Response OK = ${response.ok}`)
                 if(!response.ok){
                     if(response.status === 401) {
-                        console.log(`[getUserDetails] Response Status Code = ${response.status}`)
                         reject(new Error('Unauthorized'))
                     }
                 }
@@ -94,9 +87,7 @@ function HomeDemo() {
     }
 
     function fetchArtistTracks(artist, startDate, endDate) {
-        //console.log(artist, startDate, endDate)
         getArtistTracks(artist, startDate, endDate).then(data => {
-            console.log(data)
             setLoading(false)
             setTracks({
                 tracks: data['tracks']['items'],
@@ -115,7 +106,6 @@ function HomeDemo() {
     }
 
     function getArtistTracks(artist, startDate, endDate) {
-        // var url_with_query_params = `http://localhost:5000/api/search?artist_name=${artist}&start_date=${startDate}&end_date=${endDate}`
         var url_with_query_params = `api/search?artist_name=${artist}&start_date=${startDate}&end_date=${endDate}`
 
         return new Promise((resolve, reject) => {
@@ -126,10 +116,8 @@ function HomeDemo() {
                 }
             })
             .then((response) => {
-                console.log(`[getArtistTracks] Response OK = ${response.ok}`)
                 if(!response.ok) {
                     if(response.status === 401) {
-                        console.log(`[getArtistTracks] Response Status Code = ${response.status}`)
                         reject(new Error('Unauthorized'))
                     }
                 }
@@ -138,8 +126,6 @@ function HomeDemo() {
                 }
             })
             .then((json) => {
-                console.log(artist)
-                console.log(json)
                 // Only return the tracks that are actually for the artist searched, because since it's a search API, it returns not relevant results                
                 json['tracks']['items'] = json['tracks']['items'].filter(
                     track => track['artists'].find( a => {
@@ -148,9 +134,6 @@ function HomeDemo() {
 
                         // Remove accents/diacritics :- https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
                         normalized_str = normalized_str.normalize('NFD').replace(/\p{Diacritic}/gu, "")
-
-                        //console.log(normalized_str + ' vs ' + normalized_search_artist)
-                        //console.log(normalized_str.includes(normalized_search_artist))
 
                         return normalized_str.includes(normalized_search_artist)
                     }) 
@@ -162,7 +145,6 @@ function HomeDemo() {
     }
 
     function onFinish(values) {
-        // console.log('Received values of form: ', values);
         setSearchInput({
             artist: values['artist'],
             start_date: values['startDate'].format('MM-YYYY'),
@@ -174,7 +156,6 @@ function HomeDemo() {
 
     useEffect(() => {
         if(searchInput) {
-            console.log('SEARCH INPUT CHANGE ', searchInput['artist'], searchInput['start_date'], searchInput['end_date'])
             fetchArtistTracks(searchInput['artist'], searchInput['start_date'], searchInput['end_date'])
         }
     }, [searchInput])

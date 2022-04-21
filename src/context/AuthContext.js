@@ -9,9 +9,7 @@ export const AuthProvider = ({ children }) => {
     const [ authenticated, setAuthenticated ] = useState(false)
 
     useEffect(() => {
-      console.log("AUTHENTICATION EFFECT - AuthContext")
       isAuthenticated().then( data => {
-          console.log(data)
           setAuthenticated(data['authenticated'])
         }
       )
@@ -30,7 +28,6 @@ export const AuthProvider = ({ children }) => {
     function isAuthenticated() {
       return new Promise((resolve, reject) => {
         fetch('api/is-authenticated', {
-        // fetch('http://localhost:5000/api/is-authenticated', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -44,7 +41,6 @@ export const AuthProvider = ({ children }) => {
 
     function logout() {
         fetch('api/logout', {
-        // fetch('http://localhost:5000/api/logout', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
