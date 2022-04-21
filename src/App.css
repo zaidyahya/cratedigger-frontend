@@ -1,38 +1,452 @@
-.App {
-  text-align: center;
-}
+@import '~antd/dist/antd.css';
+@import 'https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500&display=swap';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+#root {
+  background-image: url('./ocean.jpg');
   min-height: 100vh;
+}
+
+/* ---------- LOGIN ----------- */
+.parent-container {
+  /* background-color: antiquewhite; */
+  background-image: url('./ocean.jpg');
+}
+
+.box-container {
+  height: 100vh;
+}
+
+.box-container-sub {
+  /* border: 1px solid black; */
+  box-shadow: 0 19px 34px rgba(0,0,0,0.26), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.box-row {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.row-color {
+  /* border: 1px solid blue; */
+}
+
+.col-color {
+  /* border: 1px solid red; */
+  /* text-align: center; */
+}
+
+.page-icon-container {
+  /* border: 3px solid black; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.page-icon {
+  /* border: 1px solid purple; */
+  color: white;
+  position: relative;
+  /* Requires a bit of movement to make it perfectly in-line with title; header text is not aligning vertically with it by default */
+  top: 4px;
+}
+
+.page-title-container {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  /* align-items: stretch; */
+  /* align-items: center; */
+}
+
+.page-title {
+  /* border: 1px solid green; */
+  /* To remove the space that h1 leaves under it; it does not take full space of parent container */ 
+  margin: auto;
+  /* text-align: center;  */
+  font-family: 'Work Sans', sans-serif;
+  font-size: 62px;
+  font-weight: 300;
+  letter-spacing: .065rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.page-description {
+  /* border: 1px solid green; */
+  margin: auto;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  line-height: 2.0;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.login-button {
+  border: none;
+  background: #1db954; 
+  height: auto;
+}
+
+.login-button:hover {
+  background: #1ed760; 
+}
+
+.login-button:focus {
+  background: #1db954; 
+}
+
+.login-button span {
+  /* border: 1px solid red; */
+  margin-left: 10px;
+  position: relative;
+  top: 2px;
+  font-family: 'Press Start 2P', cursive; 
+  /* letter-spacing: .045rem; */
+  font-size: 12px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.login-button-icon {
+  /* border: 1px solid red; */
+  color: white;
+  position: relative;
+  top: 5px;
+}
+
+@media only screen and (max-width: 576px) {
+  .box-container-sub {
+    box-shadow: none;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* ---------- HEADER ----------- */
+.header-container {
+  /* border: 1px solid red; */
+  height: 7vh;
+}
+
+.header-icon-container {
+  /* border: 1px solid orange; */
+}
+
+.header-title-container {
+  /* border: 1px solid orange; */
+}
+
+.header-title-container h3 {
+  /* border: 1px solid green; */
+  margin: auto;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: .065rem;
+  color: white;
+}
+
+.logout-button {
+  /* margin: auto; */
+  margin-top: 3px;
+  border: none;
+  background: #1db954; 
+  color: white;
+}
+
+.logout-button:hover {
+  background: #1ed760; 
+  color: white;
+}
+
+.logout-button:focus {
+  background: #1db954; 
+  color: white;
+}
+
+/* ---------- MAIN ----------- */
+.top-container {
+  /* border: 1px solid red; */
+  height: 38vh;
+}
+
+.welcome-container {
+  /* border: 1px solid green; */
+}
+
+.welcome-container h2 {
+  /* border: 1px solid black; */
+  margin: auto;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 54px;
+  letter-spacing: .15rem;
+  color: white;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  /* Enough height for one line only (desktop) */
+  max-height: 85px; 
+}
+
+.welcome-subtitle-container {
+  /* border: 1px solid blue; */
+}
+
+.welcome-subtitle-container p {
+  /* border: 1px solid red; */
+  margin: auto;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
+  letter-spacing: .1rem;
+  color: white;
+}
+
+.search-container {
+  /* border: 1px solid red; */
+  margin-top: 24px;
+}
+
+.search-container button {
+  border: none;
+  background: #1db954; 
+  color: white;
+}
+
+.search-container button:hover {
+  background: #1ed760; 
+  color: white;
+}
+
+.search-container button:focus {
+  background: #1db954; 
+  color: white;
+}
+
+.ant-form-inline {
+  /* border: 1px solid green; */
+  width: 100%;
+}
+
+.ant-form-item {
+  /* border: 1px solid blue; */
+}
+
+  /* Since it is an inline form, antd is not easily allowing to mimic col span behavior
+  Hence percentages have to be used, with little adjustment with margin & padding (see button) */
+.ant-form-item:nth-of-type(1) {
+  /* border: 1px solid green; */
+  width: 47%; 
+}
+
+.ant-form-item:nth-of-type(2) {
+  /* border: 1px solid red; */
+  margin-left: 26px;
+  width: 16%;
+  border-radius: 25px;
+}
+
+.ant-form-item:nth-of-type(3) {
+  /* border: 1px solid green; */
+  margin-left: 26px;
+  width: 16%;
+}
+
+.ant-form-item:nth-of-type(4) {
+  /* border: 1px solid red; */
+  margin-left: 26px;
+  padding-left: 8px;
+  width: 6%;
+}
+
+@media only screen and (max-width: 576px) {
+  .top-container { 
+    /* border: 1px solid blue; */
+    height: 50vh;
+    /* align-items: flex-end; */
   }
+
+  .search-container .artist {
+    /* border: 1px solid red; */
+    margin-bottom: 24px;
+  }
+  
+  .row-welcome-subtitle-container {
+    /* border: 1px solid red; */
+    margin-top: 12px;
+  }
+
+  .welcome-container h2 {
+    /* Two line maximum */
+    max-height: 155px;
+    font-size: 48px;
+  }
+
+  .search-container{
+    /* border: 1px solid red; */
+  }
+
+  .ant-form-item:nth-of-type(1) {
+    /* border: 1px solid green; */
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .ant-form-item:nth-of-type(2) {
+    /* border: 1px solid red; */
+    margin-left: 0px;
+    width: 35%;
+  }
+
+  .ant-form-item:nth-of-type(3) {
+    /* border: 1px solid green; */
+    margin-left: 0px;
+    width: 35%;
+  }
+
+  .ant-form-item:nth-of-type(4) {
+    /* border: 1px solid red; */
+    margin-left: 0px;
+    width: 15%;
+    padding-left: 6px;
+  }
+}
+
+/* ---------- DIVIDER ----------- */
+.divider-container {
+  /* border: 1px solid red; */
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+/* ---------- TRACKS ----------- */
+.tracks-container {
+  /* border: 1px solid red; */
+  min-height: 50vh;
+}
+
+.track-image {
+  /* border: 3px solid pink; */
+  margin-bottom: 8px;
+}
+
+/* .track-name {
+  margin: auto;
+  padding: 8px 0px 0px 0px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
+  color: white;
+} */
+
+.track-headphones-container {
+  /* border: 1px solid blue; */
+  margin: auto;
+  padding: 8px 0px 8px 0px;
+  /* Required for keeping container height when float is used on children */
+  overflow: auto;
+}
+
+.track-name {
+  /* border: 1px solid green; */
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
+  display: block;
+  float: left;
+  position: relative;;
+  top: 6px;
+  max-width: 80%;
+}
+
+.headphones-button-span {
+  /* border: 1px solid red; */
+  display: block;
+  float: right;  
+}
+
+.headphones-button {
+  /* border: 1px solid red; */
+  color: white;
+  text-align: right;
+}
+
+.headphones-button:hover {
+  color: #1ed760;
+}
+
+.headphones-button:focus {
+  color: white;
+}
+
+.artist-name {
+  /* border: 1px solid green; */
+  margin: auto;
+  padding: 4px 0px 0px 0px;
+  font-family: 'Work Sans', sans-serif;
+  color: white;
+}
+
+.release-date {
+  /* border: 1px solid green; */
+  margin: auto;
+  padding: 8px 0px 8px 0px;
+  font-family: 'Work Sans', sans-serif;
+  color: white;
+}
+
+.no-results {
+  /* border: 1px solid green; */
+  text-align: center;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.085rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .track-item-container {
+    /* Make it the width of the pic as otherwise the container is actually bigger than the pic, and thus the text below is allowed to go further right,
+    thus putting the headphone in an awkward position */
+    max-width: 300px; 
+  }
+
+  .headphones-button {
+    /* text-align: right; */
+    /* top: 3px; */
+  }
+}
+
+/* ---------- FOOTER ----------- */
+.footer-container {
+  /* border: 1px solid red; */
+  height: 5vh;
+}
+
+.footer-container p {
+  /* border: 1px solid green; */
+  /* margin: auto; */
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+@media only screen and (max-width: 576px) {
+  .footer-container { 
+    /* border: 1px solid blue; */
+    height: 8vh;
+    /* align-items: flex-end; */
+  }
+}
+
+/* ---------- NoMatch ----------- */
+.no-match-container {
+  /* border: 1px solid blue; */
+  min-height: 25vh;
+}
+
+.not-found-header {
+  /* border: 1px solid green; */
+  margin: auto;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  color: white;
 }
