@@ -7,7 +7,7 @@ import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 import { AuthContext } from '../context/AuthContext';
 
 function Login() {
-    const { authenticated } = useContext(AuthContext);
+    const { apiEndpoint, authenticated } = useContext(AuthContext);
 
     return(
         <>
@@ -39,7 +39,7 @@ function Login() {
 
                         <Row justify='center' className='row-color box-row'>
                             <Col className='col-color' sm={{ span: 12 }} xs={{ span: 18 }} align='middle'>
-                                <Button className='login-button' type='default' href='api/authorize'>
+                                <Button className='login-button' type='default' href={apiEndpoint+'/api/authorize'}>
                                     <FontAwesomeIcon className='login-button-icon' icon={faSpotify} size="2x" />
                                     <span>Log In With Spotify</span>
                                 </Button>

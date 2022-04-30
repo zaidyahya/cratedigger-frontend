@@ -1,7 +1,8 @@
 import React from 'react';
-import { Row, Col, Image, Button } from 'antd';
+import { Row, Col, Image, Button, Tooltip } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphones  } from '@fortawesome/free-solid-svg-icons';
+import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 
 function TrackItem(props) {
 
@@ -46,14 +47,16 @@ function TrackItem(props) {
                     {props.track['name']}
                 </span>
                 <span className="headphones-button-span">
-                    <Button 
-                        type="link"
-                        className="headphones-button"
-                        icon={<FontAwesomeIcon icon={faHeadphones} />}
-                        size='large'
-                        href={props.track['uri']}
-                        target="_blank"
-                    />
+                    <Tooltip placement="bottomLeft" title="Open in Spotify">
+                        <Button
+                            type="link"
+                            className="headphones-button"
+                            icon={<FontAwesomeIcon icon={faSpotify} />}
+                            size='large'
+                            href={props.track['uri']}
+                            target="_blank"
+                        />
+                    </Tooltip>
                 </span>
             </p>
 

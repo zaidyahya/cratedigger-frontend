@@ -367,7 +367,9 @@
 }
 
 .headphones-button:hover {
-  color: #1ed760;
+  /* color: #1ed760; */
+  color: #1db954;
+
 }
 
 .headphones-button:focus {
