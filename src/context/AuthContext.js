@@ -8,6 +8,9 @@ export const AuthProvider = ({ children }) => {
 
     const [ authenticated, setAuthenticated ] = useState(false)
 
+    //const apiEndpoint = 'http://localhost:5000'
+    const apiEndpoint = ''
+
     useEffect(() => {
       isAuthenticated().then( data => {
           setAuthenticated(data['authenticated'])
@@ -19,15 +22,16 @@ export const AuthProvider = ({ children }) => {
       logout();
       //setAuthenticated(null); // Setting state not required as redirection from API call refreshes the page anyway, thus making the is-authenticated call and hence having the right state
     };
-  
+    
     const value = {
       onLogout: handleLogout,
-      authenticated
+      authenticated,
+      apiEndpoint
     };
 
     function isAuthenticated() {
       return new Promise((resolve, reject) => {
-        fetch('api/is-authenticated', {
+        fetch(`${apiEndpoint}/api/is-authenticated`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json'
@@ -40,7 +44,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     function logout() {
-        fetch('api/logout', {
+        fetch(`${apiEndpoint}/api/logout`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

@@ -9,7 +9,7 @@ import { ScaleLoader } from "react-spinners";
 import { AuthContext } from '../context/AuthContext';
 
 function HomeDemo() {  
-    const { onLogout } = useContext(AuthContext);
+    const { apiEndpoint, onLogout } = useContext(AuthContext);
 
     const [ loading, setLoading ] = useState(false);
     const [ tracks, setTracks ] = useState({ tracks: null, search: null });
@@ -49,7 +49,7 @@ function HomeDemo() {
 
     function refreshToken() {
         return new Promise((resolve, reject) => {
-            fetch('api/refresh-token', {
+            fetch(`${apiEndpoint}/api/refresh-token`, {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ function HomeDemo() {
 
     function getUserDetails() {
         return new Promise((resolve, reject) => {
-            fetch('api/user', {
+            fetch(`${apiEndpoint}/api/user`, {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json'
@@ -106,7 +106,7 @@ function HomeDemo() {
     }
 
     function getArtistTracks(artist, startDate, endDate) {
-        var url_with_query_params = `api/search?artist_name=${artist}&start_date=${startDate}&end_date=${endDate}`
+        var url_with_query_params = `${apiEndpoint}/api/search?artist_name=${artist}&start_date=${startDate}&end_date=${endDate}`
 
         return new Promise((resolve, reject) => {
             fetch(url_with_query_params, {
